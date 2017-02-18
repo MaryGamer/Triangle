@@ -8,26 +8,30 @@ namespace Triangle
 {
     class Edge
     {
-        Point point_x1;
-        Point point_x2;
+        Point A;
+        Point B;
 
-        public Edge(Point point_x1, Point point_x2)
+        public Edge(Point val_A, Point val_B)
         {
-            this.point_x1 = point_x1;
-            this.point_x2 = point_x2;
+            if(!(val_A.x == val_B.x && val_A.y == val_B.y))
+            {
+                A = val_A;
+                B = val_B;
+            }
         }
 
         public Edge() //constructor по умолчанию
         {
-            point_x1 = new Point(1, 1);
-            point_x2 = new Point(1024, 768);
+            A = new Point(1, 1);
+            B = new Point(1024, 768);
         }
 
         public double Length_Of_Edge
         {
             get
             {
-                return (Math.Sqrt((point_x2.x - point_x1.x) + (point_x2.y - point_x1.y))); //?
+                return Math.Sqrt(Math.Pow((this.B.x - this.A.x), 2) +
+                    Math.Pow((this.B.y - this.A.y), 2));
             }
         }
     }
