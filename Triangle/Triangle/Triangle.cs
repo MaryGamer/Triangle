@@ -8,10 +8,27 @@ namespace Triangle
 {
     class Triangle
     {
-        public readonly Edge ab;
-        public readonly Edge bc;
-        public readonly Edge ac;
+        Point A;
+        Point B;
+        Point C;
 
+        Edge E1;
+        Edge E2;
+        Edge E3;
+
+        public Triangle()
+        {
+            Random rnd = new Random();
+            A = new Point(rnd.Next(1, 10) * 100, rnd.Next(1, 7) * 100);
+            B = new Point(rnd.Next(1, 10) * 100, rnd.Next(1, 7) * 100);
+            C = new Point(rnd.Next(1, 10) * 100, rnd.Next(1, 7) * 100);
+            E1 = new Edge(A, B);
+            E2 = new Edge(A, C);
+            E3 = new Edge(B, C);
+
+        }
+
+        //продолжить тут
         public Triangle(Point p1, Point p2, Point p3)
         {
             ab = new Edge(p1, p2);
