@@ -8,14 +8,19 @@ namespace Triangle
 {
     class Edge
     {
-        public readonly Point point_x1;
-        public readonly Point point_x2;
-        public double length; //public or private?
+        Point point_x1;
+        Point point_x2;
 
         public Edge(Point point_x1, Point point_x2)
         {
             this.point_x1 = point_x1;
             this.point_x2 = point_x2;
+        }
+
+        public Edge() //constructor по умолчанию
+        {
+            point_x1 = new Point(1, 1);
+            point_x2 = new Point(1024, 768);
         }
 
         public double Length_Of_Edge
