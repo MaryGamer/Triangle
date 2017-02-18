@@ -10,7 +10,7 @@ namespace Triangle
     {
         static void Main(string[] args)
         {
-            var triangle = new Triangle(3.0, 4.0);
+            var triangle = new Triangle(5.0, 5.0);
             Console.WriteLine(triangle.GetPerimeter);
             Console.WriteLine(triangle.GetArea);
         }

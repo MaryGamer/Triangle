@@ -8,8 +8,8 @@ namespace Triangle
 {
     class Point
     {
-        public readonly double x;
-        public readonly double y;
+        public readonly double x; //or int?
+        public readonly double y; //or int?
 
         public Point(double x, double y)
         {
