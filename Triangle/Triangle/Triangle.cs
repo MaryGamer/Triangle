@@ -28,16 +28,16 @@ namespace Triangle
 
         }
 
-        
+
         public Triangle(Point val_A, Point val_B, Point val_C)
         {
             Edge e1 = new Edge(val_A, val_B);
             Edge e2 = new Edge(val_B, val_C);
             Edge e3 = new Edge(val_A, val_C);
 
-             if(e1.Length_Of_Edge + e2.Length_Of_Edge > e3.Length_Of_Edge ||
-                e2.Length_Of_Edge + e3.Length_Of_Edge > e1.Length_Of_Edge ||
-                e1.Length_Of_Edge + e3.Length_Of_Edge > e2.Length_Of_Edge)
+            if (e1.Length_Of_Edge + e2.Length_Of_Edge > e3.Length_Of_Edge ||
+               e2.Length_Of_Edge + e3.Length_Of_Edge > e1.Length_Of_Edge ||
+               e1.Length_Of_Edge + e3.Length_Of_Edge > e2.Length_Of_Edge)
             {
                 A = val_A;
                 B = val_B;
@@ -71,20 +71,29 @@ namespace Triangle
             }
         }
 
+        public void Print()
+        {
+            Console.Write(string.Format("Triangle: ({0}-{1})-({2}-{3})-({4}-{5})",
+                A.x, A.y, B.x, B.y, C.x, C.y));
+            Console.Write(string.Format(", Area = {0}", this.GetArea));
+            Console.Write(string.Format(", Perimeter = {0}", this.GetPerimeter));
+            if (this.IsIsosceles) Console.Write(" - Isosceles");
+            if (this.IsRight) Console.Write(" - Right");
+            Console.WriteLine();
+        }
+
         public double GetPerimeter
         {
-           get
-            {
-                return (ab.Length_Of_Edge + bc.Length_Of_Edge + ac.Length_Of_Edge);
-            } 
+            get { return E1.Length_Of_Edge + E2.Length_Of_Edge + E3.Length_Of_Edge; }
         }
 
         public double GetArea
         {
             get
             {
-                double properiter = GetPerimeter / 2;
-                return (Math.Sqrt(properiter * (properiter - ab.Length_Of_Edge) * (properiter - bc.Length_Of_Edge) * (properiter - ac.Length_Of_Edge)));
+                double properiter = this.GetPerimeter / 2;
+                return Math.Sqrt(properiter * (properiter - E1.Length_Of_Edge) *
+                    (properiter - E2.Length_Of_Edge) * (properiter - E3.Length_Of_Edge));
             }
         }
 
@@ -92,7 +101,13 @@ namespace Triangle
         {
             get
             {
-
+                return
+                    (Math.Pow(E1.Length_Of_Edge, 2) + Math.Pow(E2.Length_Of_Edge, 2) ==
+                    Math.Pow(E3.Length_Of_Edge, 2)) ||
+                    (Math.Pow(E1.Length_Of_Edge, 2) + Math.Pow(E3.Length_Of_Edge, 2) ==
+                    Math.Pow(E2.Length_Of_Edge, 2)) ||
+                    (Math.Pow(E2.Length_Of_Edge, 2) + Math.Pow(E3.Length_Of_Edge, 2) ==
+                    Math.Pow(E1.Length_Of_Edge, 2));
             }
         }
 
@@ -100,7 +115,9 @@ namespace Triangle
         {
             get
             {
-
+                return (E1.Length_Of_Edge == E2.Length_Of_Edge) ||
+                       (E1.Length_Of_Edge == E3.Length_Of_Edge) ||
+                       (E2.Length_Of_Edge == E3.Length_Of_Edge);
             }
 
         }
