@@ -29,24 +29,24 @@ namespace Triangle
         }
 
 
-        public Triangle(Point val_A, Point val_B, Point val_C)
-        {
-            Edge e1 = new Edge(val_A, val_B);
-            Edge e2 = new Edge(val_B, val_C);
-            Edge e3 = new Edge(val_A, val_C);
+        //public Triangle(Point val_A, Point val_B, Point val_C)
+        //{
+        //    Edge e1 = new Edge(val_A, val_B);
+        //    Edge e2 = new Edge(val_B, val_C);
+        //    Edge e3 = new Edge(val_A, val_C);
 
-            if (e1.Length_Of_Edge + e2.Length_Of_Edge > e3.Length_Of_Edge ||
-               e2.Length_Of_Edge + e3.Length_Of_Edge > e1.Length_Of_Edge ||
-               e1.Length_Of_Edge + e3.Length_Of_Edge > e2.Length_Of_Edge)
-            {
-                A = val_A;
-                B = val_B;
-                C = val_C;
-                E1 = e1;
-                E2 = e2;
-                E3 = e3;
-            }
-        }
+        //    if (e1.Length_Of_Edge + e2.Length_Of_Edge > e3.Length_Of_Edge ||
+        //       e2.Length_Of_Edge + e3.Length_Of_Edge > e1.Length_Of_Edge ||
+        //       e1.Length_Of_Edge + e3.Length_Of_Edge > e2.Length_Of_Edge)
+        //    {
+        //        A = val_A;
+        //        B = val_B;
+        //        C = val_C;
+        //        E1 = e1;
+        //        E2 = e2;
+        //        E3 = e3;
+        //    }
+        //}
 
         public Triangle(int x1, int y1, int x2, int y2, int x3, int y3)
         {

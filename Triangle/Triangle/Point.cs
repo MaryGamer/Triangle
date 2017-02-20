@@ -8,17 +8,20 @@ namespace Triangle
 {
     class Point
     {
-        public double x             //or int?
-        {
-            get { return x; }
-            set { if (value > 0 && value < 1024) x = value; }
-        }
+        public double x { get; set; }
+        public double y { get; set; }
 
-        public double y             //or int?
-        {
-            get { return y; }
-            set { if (value > 0 && value < 768) y = value; }
-        }
+        //public double x             
+        //{
+        //    get { return x; }
+        //    set { if (value > 0 && value < 1024) x = value; }
+        //}
+
+        //public double y             
+        //{
+        //    get { return y; }
+        //    set { if (value > 0 && value < 768) y = value; }
+        //}
 
         public Point(double x_val, double y_val) //constructor 1
         {
