@@ -28,12 +28,47 @@ namespace Triangle
 
         }
 
-        //продолжить тут
-        public Triangle(Point p1, Point p2, Point p3)
+        
+        public Triangle(Point val_A, Point val_B, Point val_C)
         {
-            ab = new Edge(p1, p2);
-            bc = new Edge(p2, p3);
-            ac = new Edge(p1, p3);
+            Edge e1 = new Edge(val_A, val_B);
+            Edge e2 = new Edge(val_B, val_C);
+            Edge e3 = new Edge(val_A, val_C);
+
+             if(e1.Length_Of_Edge + e2.Length_Of_Edge > e3.Length_Of_Edge ||
+                e2.Length_Of_Edge + e3.Length_Of_Edge > e1.Length_Of_Edge ||
+                e1.Length_Of_Edge + e3.Length_Of_Edge > e2.Length_Of_Edge)
+            {
+                A = val_A;
+                B = val_B;
+                C = val_C;
+                E1 = e1;
+                E2 = e2;
+                E3 = e3;
+            }
+        }
+
+        public Triangle(int x1, int y1, int x2, int y2, int x3, int y3)
+        {
+            Point p1 = new Point(x1, y1);
+            Point p2 = new Point(x2, y2);
+            Point p3 = new Point(x3, y3);
+
+            Edge e1 = new Edge(p1, p2);
+            Edge e2 = new Edge(p2, p3);
+            Edge e3 = new Edge(p1, p3);
+
+            if (e1.Length_Of_Edge + e2.Length_Of_Edge > e3.Length_Of_Edge ||
+               e2.Length_Of_Edge + e3.Length_Of_Edge > e1.Length_Of_Edge ||
+               e1.Length_Of_Edge + e3.Length_Of_Edge > e2.Length_Of_Edge)
+            {
+                A = p1;
+                B = p2;
+                C = p3;
+                E1 = e1;
+                E2 = e2;
+                E3 = e3;
+            }
         }
 
         public double GetPerimeter
