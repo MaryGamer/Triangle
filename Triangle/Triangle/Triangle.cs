@@ -8,13 +8,13 @@ namespace Triangle
 {
     class Triangle
     {
-        Point A;
-        Point B;
-        Point C;
+        public readonly Point A;
+        public readonly Point B;
+        public readonly Point C;
 
-        Edge E1;
-        Edge E2;
-        Edge E3;
+        public readonly Edge E1;
+        public readonly Edge E2;
+        public readonly Edge E3;
 
         public Triangle()
         {
