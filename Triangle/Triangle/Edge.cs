@@ -11,28 +11,34 @@ namespace Triangle
         public readonly Point A;
         public readonly Point B;
 
-        public Edge(Point val_A, Point val_B)
+        public Edge(Point val_A, Point val_B) 
         {
-            if(!(val_A.x == val_B.x && val_A.y == val_B.y))
+            if (!(val_A.X == val_B.X && val_A.Y == val_B.Y))
             {
                 A = val_A;
                 B = val_B;
             }
         }
 
-        public Edge() //constructor по умолчанию
-        {
-            A = new Point(1, 1);
-            B = new Point(1024, 768);
-        }
-
-        public double Length_Of_Edge
+        public double Length
         {
             get
             {
-                return Math.Sqrt(Math.Pow((this.B.x - this.A.x), 2) +
-                    Math.Pow((this.B.y - this.A.y), 2));
+                return Math.Sqrt(Math.Pow((this.B.X - this.A.X), 2) +
+                    Math.Pow((this.B.Y - this.A.Y), 2));
             }
+        }
+
+        public static bool operator ==(Edge first, Edge second)
+        {
+            return first.A == second.A && first.B == second.B ||
+                   first.A == second.B && first.B == second.A;
+        }
+
+        public static bool operator !=(Edge first, Edge second)
+        {
+            return !(first.A == second.A && first.B == second.B ||
+                   first.A == second.B && first.B == second.A);
         }
     }
 }

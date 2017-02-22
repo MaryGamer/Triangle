@@ -8,31 +8,23 @@ namespace Triangle
 {
     class Point
     {
-        public double x { get; set; }
-        public double y { get; set; }
+        public double X { get; set; }
+        public double Y { get; set; }
 
-        //public double x             
-        //{
-        //    get { return x; }
-        //    set { if (value > 0 && value < 1024) x = value; }
-        //}
-
-        //public double y             
-        //{
-        //    get { return y; }
-        //    set { if (value > 0 && value < 768) y = value; }
-        //}
-
-        public Point(double x_val, double y_val) //constructor 1
+        public Point(double x_val, double y_val) 
         {
-            this.x = x_val;
-            this.y = y_val;
+            this.X = x_val;
+            this.Y = y_val;
         }
 
-        public Point() // constructor 2 (по умолчанию)
+        public static bool operator ==(Point point_1, Point point_2)
         {
-            this.x = 1;
-            this.y = 1;
+            return point_1.X == point_2.X || point_1.Y == point_2.Y;
+        }
+
+        public static bool operator !=(Point point_1, Point point_2)
+        {
+            return point_1.X != point_2.X || point_1.Y != point_2.Y;
         }
     }
 }
